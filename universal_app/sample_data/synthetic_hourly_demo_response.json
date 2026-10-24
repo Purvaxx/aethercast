@@ -1,0 +1,820 @@
+{
+ "status": "ok",
+ "engine_version": "phase4a-v1.0",
+ "schema_version": "forecast-response-v1",
+ "request": {
+  "timestamp_column": "timestamp",
+  "target_columns": [
+   "demand_units"
+  ],
+  "horizon": 24,
+  "horizon_unit": "steps",
+  "group_column": null,
+  "frequency": null,
+  "known_future_covariates": [],
+  "allowed_models": null,
+  "seasonal_period": null,
+  "interval_levels": [
+   0.8,
+   0.95
+  ],
+  "max_missing_fraction": 0.05,
+  "validation_fraction": 0.2,
+  "n_rows": 1080
+ },
+ "issues": [],
+ "profile": {
+  "n_rows_in": 1080,
+  "columns": {
+   "demand_units": {
+    "type": "numeric",
+    "missing_fraction": 0.0,
+    "tags": []
+   },
+   "temperature_c": {
+    "type": "numeric",
+    "missing_fraction": 0.0,
+    "tags": []
+   }
+  },
+  "n_rows_after_exact_duplicates": 1080,
+  "n_series": 1,
+  "frequencies": {
+   "None": "h"
+  }
+ },
+ "series": [
+  {
+   "group": null,
+   "target": "demand_units",
+   "status": "ok",
+   "frequency": "h",
+   "frequency_source": "inferred",
+   "seasonal_period": 24,
+   "history": {
+    "start": "2025-01-01T00:00:00",
+    "end": "2025-02-14T23:00:00",
+    "n_grid_points": 1080,
+    "n_observed": 1080,
+    "n_missing": 0,
+    "inserted_grid_points": 0,
+    "seasonal_period_source": "derived from frequency h"
+   },
+   "forecast_origin": "2025-02-14T23:00:00",
+   "training_boundary": {
+    "selection_train_end": "2025-02-05T00:00:00",
+    "rule": "all parameters used for model selection were fitted on data up to this time",
+    "final_fit_end": "2025-02-14T23:00:00",
+    "final_fit_note": "after selection the chosen model is re-fitted on the full history up to the forecast origin"
+   },
+   "validation": {
+    "first_origin": "2025-02-05T00:00:00",
+    "last_origin": "2025-02-13T23:00:00",
+    "n_origins": 216,
+    "n_common_origins": 216,
+    "purge": "labels reach 24 steps beyond each origin; training labels end at selection_train_end",
+    "naive_mae": 20.87903163580247
+   },
+   "selected_model": "ridge",
+   "selection_reason": "lowest validation MAE (3.53153) on 216 common origins",
+   "baseline_model": "naive",
+   "candidates": [
+    {
+     "model": "mlp_pjm_v11",
+     "status": "ineligible",
+     "reason": "not routed by the engine: Phase 3C.3 one-time confirmatory test: primary endpoint (24h mean MLP/ridge MAE 0.9534 vs <= 0.95) NOT MET; h1 2.3x worse than ridge; DUQ and EKPC worse than ridge on 24h targets; h6/h12 gains unconfirmed",
+     "val_mae": null,
+     "val_rmse": null,
+     "rel_mae_vs_naive": null,
+     "mase": null,
+     "per_step_mae": null,
+     "n_origins": 0,
+     "evidence_level": "exploratory"
+    },
+    {
+     "model": "naive",
+     "status": "evaluated",
+     "reason": "",
+     "val_mae": 20.87903163580247,
+     "val_rmse": 25.541709201070255,
+     "rel_mae_vs_naive": 1.0,
+     "mase": 3.523519056492807,
+     "per_step_mae": [
+      6.1230092593,
+      8.9576388889,
+      12.5714814815,
+      16.0212037037,
+      19.3698611111,
+      22.3110185185,
+      25.1601388889,
+      27.4257407407,
+      29.3590740741,
+      30.92375,
+      31.9072222222,
+      32.1402314815,
+      31.6681481481,
+      30.7971759259,
+      29.2899074074,
+      27.4072685185,
+      25.1115277778,
+      22.6827777778,
+      19.6140277778,
+      16.3152314815,
+      12.8368981481,
+      9.6822222222,
+      7.061712963,
+      6.3594907407
+     ],
+     "n_origins": 216,
+     "evidence_level": "benchmark_evidence"
+    },
+    {
+     "model": "seasonal_naive",
+     "status": "evaluated",
+     "reason": "",
+     "val_mae": 6.613613040123457,
+     "val_rmse": 7.9825828957487195,
+     "rel_mae_vs_naive": 0.31675861004888356,
+     "mase": 1.116104998815415,
+     "per_step_mae": [
+      7.0421296296,
+      7.0200462963,
+      6.9549074074,
+      6.8737962963,
+      6.8401388889,
+      6.7634259259,
+      6.7486111111,
+      6.7100925926,
+      6.7043518519,
+      6.6574537037,
+      6.6275,
+      6.555,
+      6.4753240741,
+      6.5028703704,
+      6.4988888889,
+      6.4897685185,
+      6.4952777778,
+      6.4326388889,
+      6.4379166667,
+      6.3977314815,
+      6.3891203704,
+      6.3835185185,
+      6.366712963,
+      6.3594907407
+     ],
+     "n_origins": 216,
+     "evidence_level": "benchmark_evidence"
+    },
+    {
+     "model": "drift",
+     "status": "evaluated",
+     "reason": "",
+     "val_mae": 21.011225209600973,
+     "val_rmse": 25.705222844916356,
+     "rel_mae_vs_naive": 1.0063314034915212,
+     "mase": 3.5458278773495273,
+     "per_step_mae": [
+      6.1247489791,
+      8.9673099766,
+      12.5917137056,
+      16.0555694711,
+      19.4199100659,
+      22.3789322807,
+      25.249960616,
+      27.5442586254,
+      29.4997435324,
+      31.0870120392,
+      32.089703388,
+      32.3447039102,
+      31.8861989073,
+      31.0267006606,
+      29.5274899029,
+      27.6402361327,
+      25.343681088,
+      22.8981786955,
+      19.8184294358,
+      16.4789489844,
+      12.9800808886,
+      9.7907204081,
+      7.1219932602,
+      6.403180076
+     ],
+     "n_origins": 216,
+     "evidence_level": "benchmark_evidence"
+    },
+    {
+     "model": "ets",
+     "status": "evaluated",
+     "reason": "",
+     "val_mae": 4.678201833528634,
+     "val_rmse": 5.731463556235051,
+     "rel_mae_vs_naive": 0.22406220341687944,
+     "mase": 0.7894874435791425,
+     "per_step_mae": [
+      3.7858942334,
+      3.828190821,
+      3.8508026645,
+      3.859243403,
+      3.9990404634,
+      4.0044262139,
+      4.0796604381,
+      4.1675495663,
+      4.2545597952,
+      4.3477247741,
+      4.5151654735,
+      4.5275457248,
+      4.6065620282,
+      4.6888118023,
+      4.8165061267,
+      4.8930856299,
+      5.1369547267,
+      5.1513082168,
+      5.2400046192,
+      5.4232093799,
+      5.6112281709,
+      5.7376907586,
+      5.8196127146,
+      5.9320662596
+     ],
+     "n_origins": 216,
+     "evidence_level": "benchmark_evidence"
+    },
+    {
+     "model": "ridge",
+     "status": "evaluated",
+     "reason": "",
+     "val_mae": 3.5315332815896396,
+     "val_rmse": 4.326799713206986,
+     "rel_mae_vs_naive": 0.16914258013450764,
+     "mase": 0.5959771043682994,
+     "per_step_mae": [
+      3.5215572206,
+      3.5436684666,
+      3.5274490699,
+      3.497821041,
+      3.5320231844,
+      3.5304249497,
+      3.5445492697,
+      3.5482929563,
+      3.5352468329,
+      3.564122824,
+      3.6017594064,
+      3.5534825466,
+      3.4969568316,
+      3.5535671494,
+      3.5472933296,
+      3.5420704308,
+      3.5560996848,
+      3.5313167664,
+      3.4679746719,
+      3.5290749307,
+      3.5236436651,
+      3.4968590758,
+      3.5185669735,
+      3.4929774806
+     ],
+     "n_origins": 216,
+     "evidence_level": "benchmark_evidence"
+    }
+   ],
+   "forecast": [
+    {
+     "step": 1,
+     "timestamp": "2025-02-15T00:00:00",
+     "point": 121.6039512773769,
+     "intervals": {
+      "0.8": [
+       115.84455231162947,
+       126.94580811451856
+      ],
+      "0.95": [
+       112.16975732071015,
+       128.3591842669421
+      ]
+     }
+    },
+    {
+     "step": 2,
+     "timestamp": "2025-02-15T01:00:00",
+     "point": 128.29279141393263,
+     "intervals": {
+      "0.8": [
+       122.16445987408157,
+       133.62343822236204
+      ],
+      "0.95": [
+       119.37813103890723,
+       135.3095056671274
+      ]
+     }
+    },
+    {
+     "step": 3,
+     "timestamp": "2025-02-15T02:00:00",
+     "point": 133.5925240397595,
+     "intervals": {
+      "0.8": [
+       127.66068810471853,
+       138.87735460967224
+      ],
+      "0.95": [
+       125.09675313505653,
+       140.59247140184027
+      ]
+     }
+    },
+    {
+     "step": 4,
+     "timestamp": "2025-02-15T03:00:00",
+     "point": 138.3719653613777,
+     "intervals": {
+      "0.8": [
+       132.37700526325688,
+       143.72761079682138
+      ],
+      "0.95": [
+       129.55640503625477,
+       145.14166985890225
+      ]
+     }
+    },
+    {
+     "step": 5,
+     "timestamp": "2025-02-15T04:00:00",
+     "point": 142.89470935691298,
+     "intervals": {
+      "0.8": [
+       136.54752514101475,
+       147.95362660931931
+      ],
+      "0.95": [
+       134.1435628989729,
+       150.28401074753512
+      ]
+     }
+    },
+    {
+     "step": 6,
+     "timestamp": "2025-02-15T05:00:00",
+     "point": 144.92771330205872,
+     "intervals": {
+      "0.8": [
+       139.07421142856623,
+       150.02695411047867
+      ],
+      "0.95": [
+       135.9432485017855,
+       152.0782774325325
+      ]
+     }
+    },
+    {
+     "step": 7,
+     "timestamp": "2025-02-15T06:00:00",
+     "point": 145.60457302292426,
+     "intervals": {
+      "0.8": [
+       139.65642610120148,
+       150.79805099735094
+      ],
+      "0.95": [
+       136.4961892707083,
+       152.8567375465494
+      ]
+     }
+    },
+    {
+     "step": 8,
+     "timestamp": "2025-02-15T07:00:00",
+     "point": 144.52183303043762,
+     "intervals": {
+      "0.8": [
+       138.6171007519287,
+       149.67582747330977
+      ],
+      "0.95": [
+       135.30803498062306,
+       151.84685052438715
+      ]
+     }
+    },
+    {
+     "step": 9,
+     "timestamp": "2025-02-15T08:00:00",
+     "point": 142.29802856787998,
+     "intervals": {
+      "0.8": [
+       136.59261993813135,
+       147.5544584794083
+      ],
+      "0.95": [
+       133.2110116383361,
+       149.4648147972616
+      ]
+     }
+    },
+    {
+     "step": 10,
+     "timestamp": "2025-02-15T09:00:00",
+     "point": 138.30087174205764,
+     "intervals": {
+      "0.8": [
+       132.75795776826942,
+       143.86363963411594
+      ],
+      "0.95": [
+       128.83122764146185,
+       145.64569410417653
+      ]
+     }
+    },
+    {
+     "step": 11,
+     "timestamp": "2025-02-15T10:00:00",
+     "point": 132.92678749696415,
+     "intervals": {
+      "0.8": [
+       126.98284876997292,
+       138.57252686118136
+      ],
+      "0.95": [
+       123.367898269749,
+       140.30431114976568
+      ]
+     }
+    },
+    {
+     "step": 12,
+     "timestamp": "2025-02-15T11:00:00",
+     "point": 126.85381826548176,
+     "intervals": {
+      "0.8": [
+       121.15504869765479,
+       132.36625104859655
+      ],
+      "0.95": [
+       117.52558095835055,
+       134.150584299016
+      ]
+     }
+    },
+    {
+     "step": 13,
+     "timestamp": "2025-02-15T12:00:00",
+     "point": 120.51454917350455,
+     "intervals": {
+      "0.8": [
+       114.88449270079401,
+       125.99761221206444
+      ],
+      "0.95": [
+       111.46286857003432,
+       127.61518927567103
+      ]
+     }
+    },
+    {
+     "step": 14,
+     "timestamp": "2025-02-15T13:00:00",
+     "point": 113.6421302088641,
+     "intervals": {
+      "0.8": [
+       107.47360172642364,
+       119.28239566858966
+      ],
+      "0.95": [
+       104.22549887160626,
+       121.0238392415904
+      ]
+     }
+    },
+    {
+     "step": 15,
+     "timestamp": "2025-02-15T14:00:00",
+     "point": 107.70120837734832,
+     "intervals": {
+      "0.8": [
+       101.65581239851485,
+       113.0483184462144
+      ],
+      "0.95": [
+       98.63723978999654,
+       114.83593647573045
+      ]
+     }
+    },
+    {
+     "step": 16,
+     "timestamp": "2025-02-15T15:00:00",
+     "point": 102.9352061750901,
+     "intervals": {
+      "0.8": [
+       96.77160305674187,
+       108.34808319786883
+      ],
+      "0.95": [
+       93.59670384034122,
+       109.9428743351177
+      ]
+     }
+    },
+    {
+     "step": 17,
+     "timestamp": "2025-02-15T16:00:00",
+     "point": 98.31952996475906,
+     "intervals": {
+      "0.8": [
+       92.33370079591882,
+       103.70431474920991
+      ],
+      "0.95": [
+       88.82468257065398,
+       105.3045141383246
+      ]
+     }
+    },
+    {
+     "step": 18,
+     "timestamp": "2025-02-15T17:00:00",
+     "point": 95.99936486214244,
+     "intervals": {
+      "0.8": [
+       90.27880194544332,
+       101.46786537433935
+      ],
+      "0.95": [
+       86.63975301912006,
+       103.2427056668241
+      ]
+     }
+    },
+    {
+     "step": 19,
+     "timestamp": "2025-02-15T18:00:00",
+     "point": 95.23427449866628,
+     "intervals": {
+      "0.8": [
+       89.35213426647465,
+       100.82099800082958
+      ],
+      "0.95": [
+       86.19266155466087,
+       102.42685081755347
+      ]
+     }
+    },
+    {
+     "step": 20,
+     "timestamp": "2025-02-15T19:00:00",
+     "point": 95.50616965111112,
+     "intervals": {
+      "0.8": [
+       89.51963399453149,
+       101.09051675944914
+      ],
+      "0.95": [
+       86.03602298337191,
+       102.71636761540111
+      ]
+     }
+    },
+    {
+     "step": 21,
+     "timestamp": "2025-02-15T20:00:00",
+     "point": 98.42411507121619,
+     "intervals": {
+      "0.8": [
+       92.5159354855596,
+       103.93959087788237
+      ],
+      "0.95": [
+       88.95785447023032,
+       105.42395276144634
+      ]
+     }
+    },
+    {
+     "step": 22,
+     "timestamp": "2025-02-15T21:00:00",
+     "point": 102.16607502700215,
+     "intervals": {
+      "0.8": [
+       95.64869387915961,
+       107.54252298338686
+      ],
+      "0.95": [
+       93.1007826530043,
+       109.23842599593829
+      ]
+     }
+    },
+    {
+     "step": 23,
+     "timestamp": "2025-02-15T22:00:00",
+     "point": 107.11375479250945,
+     "intervals": {
+      "0.8": [
+       100.39524883948958,
+       112.58798918000596
+      ],
+      "0.95": [
+       97.98501497588524,
+       113.99889784050234
+      ]
+     }
+    },
+    {
+     "step": 24,
+     "timestamp": "2025-02-15T23:00:00",
+     "point": 113.28762197972318,
+     "intervals": {
+      "0.8": [
+       106.76484548076736,
+       118.7886817297157
+      ],
+      "0.95": [
+       104.18417350988327,
+       120.38646601878159
+      ]
+     }
+    }
+   ],
+   "uncertainty": {
+    "status": "available",
+    "method": "empirical quantiles of validation residuals of the selected model, per forecast step",
+    "n_residuals_per_step": 216,
+    "levels": [
+     0.8,
+     0.95
+    ],
+    "caveats": [
+     "coverage is NOT guaranteed: residuals come from one validation period with overlapping forecast origins",
+     "intervals assume future errors resemble validation errors (no distribution shift)",
+     "these are not calibrated probabilities"
+    ],
+    "validation_residual_summary": {
+     "mean": 0.003095840811078489,
+     "sd": 4.326798605664208,
+     "mae_by_step": [
+      3.521557220599437,
+      3.5436684666108147,
+      3.5274490699096344,
+      3.497821041042796,
+      3.532023184417309,
+      3.530424949741869,
+      3.544549269665604,
+      3.5482929562564656,
+      3.5352468328798152,
+      3.5641228240096985,
+      3.6017594063725435,
+      3.5534825466096236,
+      3.49695683158088,
+      3.553567149424499,
+      3.5472933295707914,
+      3.5420704307696913,
+      3.5560996848206226,
+      3.5313167664032425,
+      3.4679746719046105,
+      3.5290749306684197,
+      3.5236436650815444,
+      3.496859075756917,
+      3.518566973466559,
+      3.4929774805879514
+     ]
+    }
+   },
+   "issues": [],
+   "limitations": [
+    "alpha fixed at 1.0 on standardised features (Phase 3B.1: the grid edge was hit for noisy targets)",
+    "univariate inputs only in 4A",
+    "univariate forecasts per (group, target): other columns and known-future covariates are not used in Phase 4A",
+    "horizon counts steps of one regular frequency; business-day / session calendars and holidays are not modelled",
+    "the selected model is chosen on one chronological validation period; validation accuracy is not a guarantee of future accuracy",
+    "evidence level of ridge: benchmark_evidence (Phase 3B / 3B.1 / 3C.2 (strong at short horizons on hourly energy/weather; no skill on daily returns))"
+   ]
+  }
+ ],
+ "registry": [
+  {
+   "name": "naive",
+   "family": "baseline",
+   "description": "flat forecast: last observed value for every step",
+   "min_history": ">= 1 non-missing observation",
+   "needs_regular_frequency": false,
+   "needs_seasonal_period": false,
+   "target_types": [
+    "continuous_numeric"
+   ],
+   "multivariate": false,
+   "cost_rank": 0,
+   "evidence_level": "benchmark_evidence",
+   "routed": true,
+   "evidence": "Phase 3B reference model on 9 datasets (validation)",
+   "limitations": [
+    "no trend or seasonality"
+   ]
+  },
+  {
+   "name": "seasonal_naive",
+   "family": "baseline",
+   "description": "value one seasonal period earlier (y_{t+k-m*ceil(k/m)})",
+   "min_history": ">= m observations",
+   "needs_regular_frequency": true,
+   "needs_seasonal_period": true,
+   "target_types": [
+    "continuous_numeric"
+   ],
+   "multivariate": false,
+   "cost_rank": 1,
+   "evidence_level": "benchmark_evidence",
+   "routed": true,
+   "evidence": "Phase 3B, hourly datasets (m=24/168)",
+   "limitations": [
+    "requires a defensible seasonal period",
+    "fails when the matching past value is missing (no fallback inside the model)"
+   ]
+  },
+  {
+   "name": "drift",
+   "family": "baseline",
+   "description": "random walk with drift (Hyndman): slope from the first to the last observation",
+   "min_history": ">= 2 observations",
+   "needs_regular_frequency": false,
+   "needs_seasonal_period": false,
+   "target_types": [
+    "continuous_numeric"
+   ],
+   "multivariate": false,
+   "cost_rank": 2,
+   "evidence_level": "benchmark_evidence",
+   "routed": true,
+   "evidence": "Phase 3B (levels, log prices)",
+   "limitations": [
+    "extrapolates the whole-history slope linearly"
+   ]
+  },
+  {
+   "name": "ets",
+   "family": "statistical",
+   "description": "ETS(A,N,N) or ETS(A,N,A) with m when a seasonal period is available; parameters fitted on the training split only",
+   "min_history": ">= 30 observations (A,N,N); >= 3m (A,N,A)",
+   "needs_regular_frequency": true,
+   "needs_seasonal_period": false,
+   "target_types": [
+    "continuous_numeric"
+   ],
+   "multivariate": false,
+   "cost_rank": 3,
+   "evidence_level": "benchmark_evidence",
+   "routed": true,
+   "evidence": "Phase 3B / 3B.1 (in-project implementation, tested against hand-computed recursions)",
+   "limitations": [
+    "in-project implementation (statsmodels not installed)",
+    "no trend component",
+    "parameters not re-estimated at each origin"
+   ]
+  },
+  {
+   "name": "ridge",
+   "family": "linear",
+   "description": "direct multi-step ridge on past-only target lags, trailing means and calendar features (one model per step)",
+   "min_history": ">= max(lags)+horizon+50 training samples",
+   "needs_regular_frequency": true,
+   "needs_seasonal_period": false,
+   "target_types": [
+    "continuous_numeric"
+   ],
+   "multivariate": false,
+   "cost_rank": 4,
+   "evidence_level": "benchmark_evidence",
+   "routed": true,
+   "evidence": "Phase 3B / 3B.1 / 3C.2 (strong at short horizons on hourly energy/weather; no skill on daily returns)",
+   "limitations": [
+    "alpha fixed at 1.0 on standardised features (Phase 3B.1: the grid edge was hit for noisy targets)",
+    "univariate inputs only in 4A"
+   ]
+  },
+  {
+   "name": "mlp_pjm_v11",
+   "family": "neural",
+   "description": "Phase 3C.1 frozen MLP (2x64) for the PJM hourly load dataset only",
+   "min_history": "PJM Phase 3A pipeline only",
+   "needs_regular_frequency": true,
+   "needs_seasonal_period": false,
+   "target_types": [
+    "continuous_numeric"
+   ],
+   "multivariate": true,
+   "cost_rank": 9,
+   "evidence_level": "exploratory",
+   "routed": false,
+   "evidence": "Phase 3C.3 one-time confirmatory test: primary endpoint (24h mean MLP/ridge MAE 0.9534 vs <= 0.95) NOT MET; h1 2.3x worse than ridge; DUQ and EKPC worse than ridge on 24h targets; h6/h12 gains unconfirmed",
+   "limitations": [
+    "not routed by the engine",
+    "valid only for the frozen PJM feature pipeline",
+    "PJM test block consumed: no further confirmation possible on PJM"
+   ]
+  }
+ ],
+ "numeric_provenance": "all numbers computed by the numerical backend (no language model involved)"
+}

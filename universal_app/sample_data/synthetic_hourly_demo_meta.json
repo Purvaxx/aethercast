@@ -1,0 +1,12 @@
+{
+ "file": "synthetic_hourly_demo.csv",
+ "description": "Synthetic hourly sample: computer-generated demand with a daily and weekly cycle plus noise. Not real measurements.",
+ "timestamp_column": "timestamp",
+ "target_column": "demand_units",
+ "horizon": 24,
+ "frequency": "h",
+ "frame_hash": "b0c793f42ee76ab0d0ebb0524716d31ada53fad7410a35a2f12a2306d4e1d523",
+ "csv_sha256": "0bd319207d2d175203c389e2ddf0ab704c97c1a4afddc9cb24c1b44a50fe738e",
+ "engine_version": "phase4a-v1.0",
+ "generated_by": "src.universal_forecasting.engine.forecast (real Phase 4A engine) on this file; stored unchanged"
+}
