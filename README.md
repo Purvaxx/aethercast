@@ -1,4 +1,4 @@
-# AetherCast AI
+# AetherCast
 ### A unified platform for time-series forecasting.
 
 **Different datasets. Different patterns. One forecasting platform.**
