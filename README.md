@@ -1,7 +1,7 @@
 # AetherCast
 ### Universal Time-Series Forecasting Platform
 
-AetherCast AI is a machine-learning-driven forecasting platform designed to bring dataset exploration, forecasting, model-driven analysis, and reporting into a unified application.
+AetherCast is a machine-learning-driven forecasting platform designed to bring dataset exploration, forecasting, model-driven analysis, and reporting into a unified application.
 
 The project focuses on simplifying the forecasting workflow while retaining control over dataset preparation, forecasting configuration, prediction analysis, and result export.
 
@@ -121,11 +121,9 @@ https://github.com/user-attachments/assets/50f668c1-b8c9-4567-8470-892a93e9ae24
 
 The application is designed for deployment using Streamlit Community Cloud, subject to dependency compatibility, hosting resource limits, and the configuration of the deployment environment.
 
-Repository privacy and application access permissions are separate considerations. Persistent forecast history also depends on the storage available in the hosted environment.
-
 ## Project Status
 
-AetherCast AI is an evolving forecasting application. Its capabilities, model implementations, and evaluation results should be assessed against the current codebase and documented experiments.
+AetherCast is an evolving forecasting application. Its capabilities, model implementations, and evaluation results should be assessed against the current codebase and documented experiments.
 
 ## Repository
 
