@@ -1254,5 +1254,3 @@ except Exception as _ex:                                          # noqa: BLE001
              "Start over, and if it happens again check the application log.")
     if st.button("Start over", key="btn_guard_restart"):
         reset_all()
-st.markdown("<div class='ufa-section'></div>", unsafe_allow_html=True)
-st.caption(f"AETHERCAST · Service: {service.name}. Forecasts and metrics come only from the forecasting engine; this interface does not compute or change them. No language-model calls are made.")
