@@ -2,7 +2,7 @@ r"""Launch the Universal Forecasting interface on port 8503 with its monochrome 
 configuration (the theme is passed as command-line options, not written to a shared .streamlit/config.toml).
 The server listens on this computer only (localhost).
 
-    .venv\Scripts\python.exe universal_app\launch.py           normal mode (default): real Phase 4A engine + Phase 4B deterministic explanations
+    .venv\Scripts\python.exe universal_app\launch.py           normal mode (default): the forecasting engine and the rule-based explanations
     .venv\Scripts\python.exe universal_app\launch.py --demo    demo mode (stored result for the bundled synthetic sample)
     set UFA_SERVICE=not_connected, then the first command     engine switched off (validation only)
 

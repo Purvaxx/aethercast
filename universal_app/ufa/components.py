@@ -277,7 +277,7 @@ MOTION_CSS = f"""
 @keyframes ufx-fade {{ from {{ opacity: 0; }} to {{ opacity: 1; }} }}
 @keyframes ufx-blur {{ from {{ opacity: 0; filter: blur(6px); transform: translateY(4px); }} to {{ opacity: 1; filter: none; transform: none; }} }}
 /* ---- brand */
-.ufx-brand {{ display: flex; align-items: center; gap: .55rem; font-size: .78rem; font-weight: 700; letter-spacing: .34em; color: #e5e5e5; margin: .1rem 0 .55rem .2rem;
+.ufx-brand {{ display: flex; align-items: center; gap: .55rem; font-size: .82rem; font-weight: 700; letter-spacing: .16em; color: #e5e5e5; margin: .1rem 0 .55rem .2rem;
   animation: ufx-fade .9s var(--m-ease) both; }}
 .ufx-brand i {{ position: relative; width: 14px; height: 14px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff, #8a8a8f 55%, #2a2a2c); box-shadow: 0 0 10px rgba(255,255,255,.35); }}
 .ufx-brand i::after {{ content: ""; position: absolute; left: -6px; right: -6px; top: 5px; height: 4px; border-radius: 50%; border: 1px solid rgba(255,255,255,.75); transform: rotate(-18deg); }}

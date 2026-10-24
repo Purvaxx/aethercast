@@ -1,4 +1,4 @@
-"""AETHERCAST hosted entry point (Streamlit Community Cloud runs this file).
+"""AetherCast AI hosted entry point (Streamlit Community Cloud runs this file).
 
 It runs the same interface as `universal_app/launch.py` does locally, with three hosted settings:
   * UFA_HOSTED=1     smaller upload limits for the small shared server, wording that says the file goes to the server,

@@ -1,7 +1,7 @@
-"""Universal Forecasting interface.
+"""AetherCast AI: Streamlit interface.
 
-    .venv\\Scripts\\python.exe universal_app\\launch.py            (port 8503; normal mode: real Phase 4A engine + Phase 4B explanations)
-    .venv\\Scripts\\python.exe universal_app\\launch.py --demo     (demo mode: stored result for the bundled synthetic sample)
+    python universal_app/launch.py            (port 8503; normal mode: the forecasting engine and the rule-based explanations)
+    python universal_app/launch.py --demo     (demo mode: stored result for the bundled synthetic sample)
 
 Six pages: Upload, Dataset Preview, Configure Forecast, Forecast Results, Insights, Forecast Reports.
 The interface talks to the engine only through ufa/services.py; it never computes, edits or invents a forecast number,
@@ -30,7 +30,7 @@ from ufa import viewmodels as VM  # noqa: E402
 from ufa import visuals as VIS  # noqa: E402
 from ufa import charts as CH  # noqa: E402
 
-st.set_page_config(page_title="AETHERCAST", page_icon="🪐", layout="wide", initial_sidebar_state="collapsed")
+st.set_page_config(page_title="AetherCast AI", page_icon="🪐", layout="wide", initial_sidebar_state="collapsed")
 UI.saturn()                                                        # first element on every page, so the background persists across pages
 UI.theme()
 S = st.session_state
@@ -152,7 +152,7 @@ def navigation():
     UI.saturn_place(S.step)
 
 
-st.markdown("<div class='ufx-brand' role='banner'><i aria-hidden='true'></i>AETHERCAST</div>", unsafe_allow_html=True)
+st.markdown("<div class='ufx-brand' role='banner'><i aria-hidden='true'></i>AetherCast AI</div>", unsafe_allow_html=True)
 navigation()
 
 
@@ -177,7 +177,7 @@ def file_state_html(ds: DS.Dataset) -> str:
 def screen_upload():
     _, mid, _ = st.columns([0.6, 2.4, 0.6])
     with mid:
-        st.markdown("<div class='ufx-hero'><div class='ufx-eyebrow'>AETHERCAST · Upload a dataset</div><h1>Forecast any time series<span>from one CSV file.</span></h1>"
+        st.markdown("<div class='ufx-hero'><div class='ufx-eyebrow'>AetherCast AI · Upload a dataset</div><h1>Forecast any time series<span>from one CSV file.</span></h1>"
                     "<p>Drop in a file with dates and numbers. It is checked, the settings are worked out from its values, and the engine compares models "
                     "on your own history before it forecasts.</p>" + VIS.hero_visual() + "</div>", unsafe_allow_html=True)
         with st.container(key="ufa_drop"):

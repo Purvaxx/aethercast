@@ -411,7 +411,7 @@ def _schema_issues(frame, cfg) -> list[dict]:
 
 class EngineService:
     """Normal mode: the real Phase 4A engine and the Phase 4B deterministic explanation. No fallback of any kind."""
-    name, mode = "Forecasting engine (Phase 4A) and grounded explanation layer (Phase 4B, deterministic)", "engine"
+    name, mode = "Forecasting engine and rule-based explanation layer", "engine"
     banner = None
 
     def validate(self, frame, cfg) -> list[dict]:

@@ -184,10 +184,10 @@ def report_html(record: dict) -> str:
            "td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}.tag{display:inline-block;border:1px solid #6b6b70;border-radius:6px;padding:1px 7px;font-size:11px;"
            "letter-spacing:.06em;text-transform:uppercase;margin-right:6px}.demo{border:2px solid #fff;padding:10px 14px;font-weight:700;margin:0 0 18px}"
            ".obs{color:#9a9aa0}.up{color:#22c55e}.down{color:#ef4444}@media print{body{background:#fff;color:#000}p,li,td{color:#000}svg{background:#000}}")
-    out = [f"<!doctype html><html lang='en'><head><meta charset='utf-8'><title>AETHERCAST forecast report {e(record['id'])}</title><style>{css}</style></head><body><main>"]
+    out = [f"<!doctype html><html lang='en'><head><meta charset='utf-8'><title>AetherCast AI forecast report {e(record['id'])}</title><style>{css}</style></head><body><main>"]
     if demo:
         out.append("<div class='demo'>DEMO OUTPUT. This is a stored result for the bundled synthetic sample. It is not a forecast of your data.</div>")
-    out.append(f"<div class='m' style='letter-spacing:.3em;font-size:12px;font-weight:700'>AETHERCAST</div><h1>Forecast report</h1><p class='m'>Run {e(record['id'])} · generated {e(record['created'])}"
+    out.append(f"<div class='m' style='letter-spacing:.18em;font-size:12px;font-weight:700'>AetherCast AI</div><h1>Forecast report</h1><p class='m'>Run {e(record['id'])} · generated {e(record['created'])}"
                + (f" · computed in {record['seconds']:.2f} s" if _finite(record.get("seconds")) else "") + "</p>")
     freq = c.get("frequency") or "inferred by the engine from the timestamps"
     out.append("<h2>Request</h2><table>" + "".join(f"<tr><th>{e(k)}</th><td>{e(v)}</td></tr>" for k, v in (
