@@ -1,0 +1,21 @@
+# Same options universal_app/launch.py passes locally, except the address and port (set by the host) and a smaller
+# upload limit that matches the hosted limit in universal_app/ufa/datasets.py (15 MB).
+[server]
+maxUploadSize = 15
+enableXsrfProtection = true
+enableCORS = true
+
+[browser]
+gatherUsageStats = false
+
+[client]
+showErrorDetails = "none"
+toolbarMode = "minimal"
+
+[theme]
+base = "dark"
+primaryColor = "#e5e5e5"
+backgroundColor = "#000000"
+secondaryBackgroundColor = "#141415"
+textColor = "#f5f5f5"
+font = "sans serif"

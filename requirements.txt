@@ -1,0 +1,8 @@
+# AetherCast AI web app: the packages the interface, the forecasting engine and the explanation layer import at run time,
+# pinned to the versions the local test suite passes with (Python 3.12).
+streamlit==1.65.0
+pandas==3.0.6
+numpy==2.5.3
+scipy==1.18.1
+altair==6.3.0
+pyarrow==25.0.1
